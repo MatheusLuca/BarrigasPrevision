@@ -2,8 +2,10 @@
 
 body{
     font-family: sans-serif;
+    min-height: 100vh;
 }
 
+/* Header */
 .header{
     background-color: #212529;
     padding: 35px 0px 10px 0px;
@@ -14,6 +16,7 @@ body{
 .header h1{
     font-weight: bold;
     font-size: x-large;
+    margin-bottom: 5px;
 }
 
 .nav li{
@@ -31,6 +34,7 @@ body{
     justify-content: center;
     flex-direction: row;
     padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .nav a{
@@ -48,12 +52,369 @@ body{
     border-radius: 70px;
 }
 
-.main{
-    background-color: #F5F5F5;
+/* Fim Header */
+
+
+/* Conteudo Principal */
+.main {
+    background-color: #F5F5F5; 
+    /* Define a altura mínima da seção principal como a altura da tela menos 166 pixels */
+    min-height: calc(100vh - 166px); 
+    display: flex; 
+    /* Alinha o container verticalmente ao centro */
+    align-items: center; 
+    /* Alinha os itens horizontalmente ao centro */
+    justify-content: center; 
 }
 
+.container {
+    background-color: gray; 
+    display: flex;
+    width: 600px; 
+    min-height: 575px; 
+    border-radius: 30px; 
+    /* Alinha os itens horizontalmente, com espaço entre eles */
+    justify-content: space-around;
+    position: relative;
+}
+
+.form{
+    display: flex;
+    margin-top: 30px;
+}
+
+/* Switch Day/Night */
+
+.toggleWrapper {
+    /* Define o elemento como um elemento pai para posicionamento relativo de seus filhos */
+    position: relative; 
+    /* Define o espaçamento superior do elemento */
+    top: 20px; 
+    /* Define o espaçamento direito do elemento */
+    right: 20px; 
+
+    /* Estiliza o input do checkbox, escondendo-o visualmente */
+    input {
+        position: absolute;
+        left: -99em;
+    }
+}
+
+.toggle {
+    /* Define o cursor como um ponteiro */
+    cursor: pointer; 
+    /* Define o elemento como um bloco inline */
+    display: inline-block; 
+    /* Define a largura do elemento */
+    width: 90px; 
+    /* Define a altura do elemento */
+    height: 50px; 
+    /* Define a cor de fundo do elemento */
+    background-color: #83d8ff; 
+    /* Define o raio das bordas do elemento */
+    border-radius: 84px; 
+    /* Define uma transição suave para a mudança de cor de fundo */
+    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+
+    /* Estiliza o pseudo-elemento 'before' para exibir 'AM' */
+    &:before {
+        /* Define o conteúdo do pseudo-elemento */
+        content: 'AM'; 
+        /* Define o posicionamento do pseudo-elemento */
+        position: absolute; 
+        /* Define o espaçamento esquerdo do pseudo-elemento */
+        left: -50px; 
+        /* Define o espaçamento superior do pseudo-elemento */
+        top: 15px; 
+        /* Define o tamanho da fonte do pseudo-elemento */
+        font-size: 18px; 
+    }
+
+    /* Estiliza o pseudo-elemento 'after' para exibir 'PM' */
+    &:after {
+        /* Define o conteúdo do pseudo-elemento */
+        content: 'PM'; 
+        /* Define o posicionamento do pseudo-elemento */
+        position: absolute; 
+        /* Define o espaçamento direito do pseudo-elemento */
+        right: -48px; 
+        /* Define o espaçamento superior do pseudo-elemento */
+        top: 15px; 
+        /* Define o tamanho da fonte do pseudo-elemento */
+        font-size: 18px; 
+        /* Define a cor do pseudo-elemento */
+        color: #749ed7; 
+    }
+}
+
+.toggle_handler {
+    /* Define o elemento como um bloco inline */
+    display: inline-block; 
+    /* Define o posicionamento do elemento */
+    position: relative; 
+    /* Define o índice z do elemento para garantir que esteja visível sobre outros elementos */
+    z-index: 1; 
+    /* Define o espaçamento superior do elemento */
+    top: 3px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 3px; 
+    /* Define a largura do elemento */
+    width: 44px; 
+    /* Define a altura do elemento */
+    height: 44px; 
+    /* Define a cor de fundo do elemento */
+    background-color: #FFCF96; 
+    /* Define o raio das bordas do elemento */
+    border-radius: 50px; 
+    /* Define a sombra do elemento */
+    box-shadow: 0 2px 6px rgba(0,0,0,.3); 
+    /* Define uma transição suave para as mudanças de estilo */
+    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+    /* Define a rotação do elemento */
+    transform: rotate(-45deg); 
+
+    /* Estiliza os elementos 'crater' */
+    .crater {
+        /* Define o posicionamento do elemento */
+        position: absolute; 
+        /* Define a cor de fundo do elemento */
+        background-color: #e8cda5; 
+        /* Define a opacidade do elemento */
+        opacity: 0; 
+        /* Define uma transição suave para a mudança de opacidade */
+        transition: opacity 200ms ease-in-out; 
+        /* Define o raio das bordas do elemento */
+        border-radius: 100%; 
+    }
+
+    /* Estiliza o primeiro elemento 'crater' */
+    .crater--1 {
+        /* Define o espaçamento superior do elemento */
+        top: 18px; 
+        /* Define o espaçamento esquerdo do elemento */
+        left: 10px; 
+        /* Define a largura do elemento */
+        width: 4px; 
+        /* Define a altura do elemento */
+        height: 4px; 
+    }
+
+    /* Estiliza o segundo elemento 'crater' */
+    .crater--2 {
+        /* Define o espaçamento superior do elemento */
+        top: 28px; 
+        /* Define o espaçamento esquerdo do elemento */
+        left: 22px; 
+        /* Define a largura do elemento */
+        width: 6px; 
+        /* Define a altura do elemento */
+        height: 6px; 
+    }
+
+    /* Estiliza o terceiro elemento 'crater' */
+    .crater--3 {
+        /* Define o espaçamento superior do elemento */
+        top: 10px; 
+        /* Define o espaçamento esquerdo do elemento */
+        left: 25px; 
+        /* Define a largura do elemento */
+        width: 8px; 
+        /* Define a altura do elemento */
+        height: 8px; 
+    }
+}
+
+.star {
+    /* Define o posicionamento do elemento */
+    position: absolute; 
+    /* Define a cor de fundo do elemento */
+    background-color: #ffffff; 
+    /* Define uma transição suave para as mudanças de estilo */
+    transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+    /* Define o raio das bordas do elemento */
+    border-radius: 50%; 
+}
+
+.star--1 {
+    /* Define o espaçamento superior do elemento */
+    top: 10px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 35px; 
+    /* Define o índice z do elemento */
+    z-index: 0; 
+    /* Define a largura do elemento */
+    width: 30px; 
+    /* Define a altura do elemento */
+    height: 3px; 
+}
+
+.star--2 {
+    /* Define o espaçamento superior do elemento */
+    top: 18px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 28px; 
+    /* Define o índice z do elemento */
+    z-index: 1; 
+    /* Define a largura do elemento */
+    width: 30px; 
+    /* Define a altura do elemento */
+    height: 3px; 
+}
+
+.star--3 {
+    /* Define o espaçamento superior do elemento */
+    top: 27px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 40px; 
+    /* Define o índice z do elemento */
+    z-index: 0; 
+    /* Define a largura do elemento */
+    width: 30px; 
+    /* Define a altura do elemento */
+    height: 3px; 
+}
+
+.star--4,
+.star--5,
+.star--6 {
+    /* Define a opacidade do elemento */
+    opacity: 0; 
+    /* Define uma transição suave para as mudanças de estilo */
+    transition: all 300ms 0 cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+}
+
+.star--4 {
+    /* Define o espaçamento superior do elemento */
+    top: 16px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 11px; 
+    /* Define o índice z do elemento */
+    z-index: 0; 
+    /* Define a largura do elemento */
+    width: 2px; 
+    /* Define a altura do elemento */
+    height: 2px; 
+    /* Define a transformação do elemento */
+    transform: translate3d(3px,0,0); 
+}
+
+.star--5 {
+    /* Define o espaçamento superior do elemento */
+    top: 32px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 17px; 
+    /* Define o índice z do elemento */
+    z-index: 0; 
+    /* Define a largura do elemento */
+    width: 3px; 
+    /* Define a altura do elemento */
+    height: 3px; 
+    /* Define a transformação do elemento */
+    transform: translate3d(3px,0,0); 
+}
+
+.star--6 {
+    /* Define o espaçamento superior do elemento */
+    top: 36px; 
+    /* Define o espaçamento esquerdo do elemento */
+    left: 28px; 
+    /* Define o índice z do elemento */
+    z-index: 0; 
+    /* Define a largura do elemento */
+    width: 2px; 
+    /* Define a altura do elemento */
+    height: 2px; 
+    /* Define a transformação do elemento */
+    transform: translate3d(3px,0,0); 
+}
+
+/* Estiliza o elemento 'toggle' quando o checkbox associado está marcado */
+input:checked {
+    /* Seleciona o elemento 'toggle' adjacente ao checkbox marcado */
+    + .toggle {
+        /* Define a cor de fundo do elemento */
+        background-color: #749dd6; 
+
+        /* Estiliza o pseudo-elemento 'before' do elemento 'toggle' */
+        &:before {
+            /* Define a cor do pseudo-elemento */
+            color: #749ed7; 
+        }
+
+        /* Estiliza o pseudo-elemento 'after' do elemento 'toggle' */
+        &:after {
+            /* Define a cor do pseudo-elemento */
+            color: #ffffff; 
+        }
+
+        /* Estiliza o elemento 'toggle_handler' dentro do elemento 'toggle' */
+        .toggle_handler {
+            /* Define a cor de fundo do elemento */
+            background-color: #ffe5b5; 
+            /* Define a transformação do elemento */
+            transform: translate3d(40px, 0, 0) rotate(0); 
+
+            /* Estiliza o elemento 'crater' dentro do elemento 'toggle_handler' */
+            .crater {
+                /* Define a opacidade do elemento */
+                opacity: 1; 
+            }
+        }
+
+        /* Estiliza os elementos 'star' dentro do elemento 'toggle' */
+        .star--1 {
+            width: 2px; 
+            height: 2px; 
+        }
+
+        .star--2 {
+            width: 4px; 
+            height: 4px; 
+            /* Define a transformação do elemento */
+            transform: translate3d(-5px, 0, 0); 
+        }
+
+        .star--3 {
+            width: 2px; 
+            height: 2px; 
+            transform: translate3d(-7px, 0, 0); 
+        }
+
+        .star--4,
+        .star--5,
+        .star--6 {
+            /* Define a opacidade do elemento */
+            opacity: 1; 
+            transform: translate3d(0,0,0); 
+        }
+
+        .star--4 {
+            /* Define uma transição suave para as mudanças de estilo */
+            transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+        }
+
+        .star--5 {
+            /* Define uma transição suave para as mudanças de estilo */
+            transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+        }
+
+        .star--6 {
+            /* Define uma transição suave para as mudanças de estilo */
+            transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+        }
+    }
+}
+
+
+
+/* Fim Switch Day/Night */
+
+/* Fim Conteudo Principal */
+
 .footer{
-    
+    text-align: center;
+    font-weight: bold;
+    color: #ffff;
     background-color: #212529;
 }
 
