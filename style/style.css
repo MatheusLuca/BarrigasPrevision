@@ -80,7 +80,8 @@ body{
 
 .form{
     display: flex;
-    margin-top: 30px;
+    margin-top: 35px;
+    height: 30px;
 }
 
 /* Switch Day/Night */
@@ -89,6 +90,7 @@ body{
     /* Define o elemento como um elemento pai para posicionamento relativo de seus filhos */
     position: relative; 
     margin-top: 20px;
+    height: 40px;
 
     /* Esconde o Checkbox*/
     input {
@@ -358,11 +360,17 @@ input:checked {
 
 /* Fim Switch Day/Night */
 
-
-
-
-
-
+.city-info{
+    position: absolute;
+    top: 100px;
+    display: flex;
+    margin-left: 13px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #ffff;
+    font-size: 2.5em;
+}
 
 /* Fim Conteudo Principal */
 
